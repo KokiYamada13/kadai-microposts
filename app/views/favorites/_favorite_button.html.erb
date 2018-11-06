@@ -1,0 +1,14 @@
+<% if current_user.like?(micropost) %>
+  <%= form_for(current_user.favorites.find_by(micropost_id: micropost.id), html: { method: :delete }) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :micropost_id %>
+    <%= f.submit 'Unlike', class: 'btn btn-danger btn-block' %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.favorites.build(user_id: current_user.id, micropost_id: micropost.id)) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :micropost_id %>
+    <%= f.submit 'like', class: 'btn btn-primary btn-block' %>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,17 @@
+<h1>お気に入り一覧ページ</h1>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>お気に入りポスト</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= favorite.micropost.content =%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>  
